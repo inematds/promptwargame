@@ -2,7 +2,7 @@
 
 Prompt reutilizável que transforma o planejamento de qualquer build de IA num **war game**: em vez de assumir o caminho feliz de A a B, força a IA a quebrar o projeto em fases, cada uma com objetivo, suposição otimista, suposição pessimista, modos de falha prováveis com correção, critérios de saída verificáveis e orçamento de tentativa — além de uma tabela mestre de riscos (infra, API do modelo, frontend, qualidade de conversa, segurança, loop de aprendizado) e um loop semanal de autoavaliação.
 
-📖 **Guia completo (landing + passo a passo):** https://neimaldaner.github.io/promptwargame/guia/
+📖 **Guia completo (landing + passo a passo):** https://inematds.github.io/promptwargame/guia/
 
 ## Conteúdo
 
@@ -21,4 +21,4 @@ Prompt reutilizável que transforma o planejamento de qualquer build de IA num *
 4. Peça os dois entregáveis: o plano em Markdown e a versão visual em HTML com diagramas.
 5. Execute fase por fase, conferindo os critérios de saída antes de avançar.
 
-Veja o passo a passo detalhado, com exemplos, no [guia publicado](https://neimaldaner.github.io/promptwargame/guia/).
+Veja o passo a passo detalhado, com exemplos, no [guia publicado](https://inematds.github.io/promptwargame/guia/).
