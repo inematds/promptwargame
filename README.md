@@ -24,6 +24,7 @@ Os dois usam a mesma lógica — **ação → reação → contra-ação** — e
 | [`doc/war-game-massa-portugues.md`](doc/war-game-massa-portugues.md) | O modo massa, em **português** |
 | [`doc/war-game.html`](doc/war-game.html) | Dossiê de exemplo (EN) gerado a partir do prompt para o caso PA-CHAT-V0 |
 | [`doc/war-game-portugues.html`](doc/war-game-portugues.html) | Dossiê de exemplo (PT-BR) do mesmo caso |
+| [`doc/exemplo-massa/`](doc/exemplo-massa/) | Saída de exemplo do modo massa: análise individual completa, resumo geral, ledger e suposições |
 
 ## Como usar — um projeto
 
@@ -45,4 +46,6 @@ Veja o passo a passo detalhado, com exemplos, no [guia publicado](https://inemat
 6. Leia o `resumo-geral.md`, escolha **um** projeto e entregue o war-game dele ao modelo barato com o prompt de execução.
 
 O modelo caro pensa e antecipa. O barato executa o plano já mastigado.
+
+Para saber onde você quer chegar, veja a saída de exemplo em [`doc/exemplo-massa/`](doc/exemplo-massa/) — um portfólio fictício de 4 projetos, com uma análise individual completa, o resumo geral com ranking e planos de 30/90 dias, e os dois arquivos vivos (ledger e suposições).
 
