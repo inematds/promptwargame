@@ -8,7 +8,7 @@ A chat agent that lives on my website with floating quick-action tabs above the 
 
 ## How to plan it
 
-- Break the build into phases. For each phase give the objective, an optimistic assumption, a pessimistic assumption, the most likely failure modes with fixes, verifiable exit criteria, and a take budget.
+- Break the build into phases. For each phase give the objective, an optimistic assumption, a pessimistic assumption, the most likely failure modes with fixes, verifiable exit criteria, an alternative path if the main route fails, a stop condition (the situation where execution must halt instead of improvising a way through), and a take budget.
 - Add a master table of every failure scenario you can foresee (infra, model API quirks, frontend, conversation quality, security, learning loop) with detection and recovery for each.
 - Call out exactly where the [Claude] API differs from [OpenAI] habits so nothing gets ported blindly.
 - Design a weekly self-review loop that (1) scans all conversations for prompt injection and (2) adapts the agent's speaking style to its real visitors within hard bounds, so it improves over time without ever losing core professionalism. No change ships without a regression eval and my explicit approval.

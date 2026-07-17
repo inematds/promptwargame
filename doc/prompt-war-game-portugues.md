@@ -22,6 +22,8 @@ O cérebro será o [Claude Haiku], chamado a partir de [Supabase Edge Functions]
   - suposição pessimista;
   - modos de falha mais prováveis, com correções;
   - critérios de saída verificáveis;
+  - caminho alternativo, caso a rota principal não funcione;
+  - condição de parada: em qual situação a execução deve ser interrompida em vez de improvisar uma saída;
   - orçamento de tomada ou tentativa.
 
 - Adicione uma tabela mestre com todos os cenários de falha que você conseguir prever, incluindo:

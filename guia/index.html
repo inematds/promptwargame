@@ -105,6 +105,7 @@
     <a class="sec" href="#oque">O que é</a>
     <a class="sec" href="#fluxo">Como funciona</a>
     <a class="sec" href="#guia">Guia de uso</a>
+    <a class="sec" href="#massa">Modo massa</a>
     <a class="sec" href="#exemplos">Exemplos</a>
     <a class="sec" href="#roadmap">Roadmap</a>
     <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
@@ -133,7 +134,7 @@
   <h2>Um prompt, não uma ferramenta</h2>
   <p class="sub">É um texto único — em EN e PT-BR — que você cola no início de uma conversa com sua IA de planejamento antes de pedir qualquer execução. Não precisa instalar nada.</p>
   <div class="grid g3">
-    <div class="card"><h3>🎯 Sem caminho feliz</h3><p>Cada fase é obrigada a declarar objetivo, suposição otimista, suposição pessimista, modos de falha com correção e critérios de saída verificáveis — antes de existir código.</p></div>
+    <div class="card"><h3>🎯 Sem caminho feliz</h3><p>Cada fase é obrigada a declarar objetivo, suposição otimista, suposição pessimista, modos de falha com correção, critérios de saída verificáveis, caminho alternativo e condição de parada — antes de existir código.</p></div>
     <div class="card"><h3>📋 Tabela mestre de riscos</h3><p>Uma tabela única cobrindo infraestrutura, particularidades da API do modelo, frontend, qualidade de conversa, segurança e loop de aprendizado, cada cenário com detecção e recuperação.</p></div>
     <div class="card"><h3>🔁 Loop de autoevolução</h3><p>Desenha uma revisão semanal que varre as conversas em busca de prompt injection e ajusta o estilo do agente dentro de limites rígidos — nenhuma mudança vai pra produção sem avaliação de regressão e aprovação explícita.</p></div>
   </div>
@@ -204,9 +205,75 @@ Plan a full build of <span class="s">the Prompt Advisers website chat agent</spa
 
   <div class="step"><div class="b">5</div><div>
     <h3>Execute fase por fase, sem pular</h3>
-    <p>Pare a cada fase, confira os critérios de saída, e só então siga pra próxima. Se travar, volte pro plano antes de forçar a execução.</p>
+    <p>Pare a cada fase, confira os critérios de saída, e só então siga pra próxima. Se bater numa condição de parada, pare de verdade: registre o bloqueio em vez de deixar a IA improvisar uma saída.</p>
 <pre><span class="k">fase 0</span> → <span class="k">checar critérios de saída</span> → <span class="k">fase 1</span> → <span class="k">...</span></pre>
   </div></div>
+</div></section>
+
+<section id="massa"><div class="wrap">
+  <span class="chip">Modo massa</span>
+  <h2>Quando o problema não é um projeto, são doze</h2>
+  <p class="sub">O prompt acima abre <strong>um</strong> projeto a fundo. Existe um segundo modo, no mesmo repo, pra quando a pergunta é outra: tenho vários projetos parados — qual eu faço primeiro, qual eu simplifico, qual eu abandono?</p>
+
+  <div class="grid g2">
+    <div class="card"><h3>⚔️ War Game</h3><p><strong>Um projeto, a fundo.</strong> Responde "como construir isso sem levar porrada no caminho?". Entrega plano em fases, tabela mestre de falhas e dossiê visual em HTML.</p></div>
+    <div class="card"><h3>🗂️ War Game em Massa</h3><p><strong>Vários projetos, comparados.</strong> Responde "por onde eu começo?". Entrega uma análise por projeto, ranking por impacto/esforço/risco e plano de 30 e 90 dias.</p></div>
+  </div>
+
+  <p class="sub" style="margin-top:22px">Os dois usam a mesma lógica — <strong>ação → reação → contra-ação</strong> — e a mesma regra: prever a barreira antes da primeira linha de código. A diferença está em onde o modelo caro é gasto.</p>
+
+  <div class="flow">
+    <span>Um arquivo por projeto</span><span class="arr">→</span>
+    <span>Contexto + critérios comuns</span><span class="arr">→</span>
+    <span>Prompt mestre (modelo forte)</span><span class="arr">→</span>
+    <span>Rodada de revisão</span><span class="arr">→</span>
+    <span>Ranking + 30/90 dias</span><span class="arr">→</span>
+    <span>Executar 1 projeto (modelo barato)</span>
+  </div>
+
+  <div class="step" style="margin-top:34px"><div class="b">1</div><div>
+    <h3>Monte a estrutura e escreva um arquivo por projeto</h3>
+    <p>Nunca junte vários num arquivo só — isso mistura contexto e destrói a comparação. Comece pelo briefing mínimo de 5 perguntas; o que você não souber, <strong>deixe em branco</strong>, não chute.</p>
+<pre>analise-projetos/
+├── projetos/          <span class="c"># projeto-01.md, projeto-02.md, ...</span>
+├── resultados/        <span class="c"># a IA escreve aqui</span>
+├── contexto-geral.md  <span class="c"># o que vale pra todos</span>
+├── criterios.md       <span class="c"># os mesmos critérios pra todos</span>
+├── ledger.md          <span class="c"># bloqueios</span>
+└── assumptions.md     <span class="c"># suposições, com impacto se erradas</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Preencha o contexto geral e os critérios</h3>
+    <p>São esses dois arquivos que tornam projetos diferentes comparáveis. Critério comum é o que permite ranking — critério por projeto não permite nada.</p>
+<pre><span class="c"># criterios.md — os mesmos pra todos</span>
+<span class="k">substância</span>  clareza · problema real · público · valor · diferencial
+<span class="k">execução</span>   viabilidade · complexidade · gargalo · simplificação · automação
+<span class="k">risco</span>      o que impede · segurança · manutenção · escala
+<span class="k">retorno</span>    receita · custo</pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Rode o prompt mestre com o modelo mais capaz</h3>
+    <p>Ele gera uma primeira versão de <strong>todos</strong> os projetos — sem polir nenhum. Polir o projeto 01 antes de olhar o resto queima o orçamento no primeiro da fila, que raramente é o mais importante.</p>
+<pre><span class="k">cat</span> doc/war-game-massa-portugues.md  <span class="c"># ou doc/mass-war-game.md (EN)</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Rode a rodada de revisão</h3>
+    <p>A primeira rodada quase sempre sai genérica. É a segunda que tira o genérico: caça contradição, risco ignorado, etapa sem validação e ação sem condição de parada.</p>
+<pre><span class="k">revisar</span> /resultados → <span class="k">aprofundar war-game</span> → <span class="k">atualizar ledger + suposições</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Escolha UM projeto e entregue ao modelo barato</h3>
+    <p>Análise pode ser em massa. Execução, não. Leia o <code>resumo-geral.md</code>, escolha o prioritário e entregue o war-game dele com o prompt de execução.</p>
+<pre><span class="k">modelo avançado</span> pensa e antecipa
+<span class="k">modelo intermediário</span> organiza
+<span class="k">modelo barato</span> executa  <span class="c"># seguindo o plano já mastigado</span></pre>
+  </div></div>
+
+  <p class="sub" style="margin-top:8px">O <code>ledger.md</code> e o <code>assumptions.md</code> são o que impede a análise de virar ficção: sem eles, o modelo inventa o que falta pra conseguir continuar. Faltou informação? Ela vira <code>[PRECISA_DEFINIR: x]</code> no ponto exato onde faria falta.</p>
 </div></section>
 
 <section id="exemplos"><div class="wrap">
@@ -229,6 +296,7 @@ Plan a full build of <span class="s">the Prompt Advisers website chat agent</spa
   <p class="sub">O prompt está estável nas duas línguas. Próximos passos possíveis, sem compromisso de prazo.</p>
   <div class="phase"><div class="tag">v1</div><div class="d"><strong>Prompt EN + PT-BR</strong><span>Os dois prompts prontos, mais dois dossiês de exemplo (PA-CHAT-V0) mostrando a saída esperada.</span></div></div>
   <div class="phase"><div class="tag">v1.1</div><div class="d"><strong>Landing + guia</strong><span>Esta página: o que é, como funciona, passo a passo e exemplos, publicada no GitHub Pages.</span></div></div>
+  <div class="phase"><div class="tag">v1.2</div><div class="d"><strong>Condição de parada + modo massa</strong><span>Cada fase passa a declarar caminho alternativo e condição de parada. E entra o segundo modo: análise em massa de vários projetos, com ledger de bloqueios, registro de suposições, ranking e plano de 30/90 dias.</span></div></div>
   <div class="phase"><div class="tag">próx.</div><div class="d"><strong>Variantes por domínio</strong><span>Versões do prompt afinadas pra tipos de projeto específicos (agente de chat, pipeline de dados, automação n8n).</span></div></div>
 </div></section>
 
