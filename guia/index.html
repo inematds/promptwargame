@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>War Game Prompt — planeje qualquer build como um war game</title>
-<meta name="description" content="Prompt reutilizável que transforma o planejamento de qualquer projeto de IA num war game: fases com suposição otimista/pessimista, tabela mestre de riscos e loop semanal de autoavaliação — pronto pra copiar e colar.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<meta content="Prompt reutilizável que transforma o planejamento de qualquer projeto de IA num war game: fases com suposição otimista/pessimista, tabela mestre de riscos e loop semanal de autoavaliação — pronto pra copiar e colar." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
@@ -90,150 +91,134 @@
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
 </style>
-</head>
-<body>
-
+<link href="https://inematds.github.io/promptwargame/guia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/promptwargame/guia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/promptwargame/guia/es/" hreflang="es" rel="alternate"/></head>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
 <nav><div class="wrap">
-  <a class="brand" href="#top"><span class="emoji">⚔️</span> War Game Prompt</a>
-  <span class="sep">|</span>
-  <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
-    <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
-  </span>
-  <div class="links">
-    <a class="sec" href="#oque">O que é</a>
-    <a class="sec" href="#fluxo">Como funciona</a>
-    <a class="sec" href="#guia">Guia de uso</a>
-    <a class="sec" href="#massa">Modo massa</a>
-    <a class="sec" href="#exemplos">Exemplos</a>
-    <a class="sec" href="#roadmap">Roadmap</a>
-    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
-    <a class="btn" href="https://github.com/inematds/promptwargame" target="_blank" rel="noopener">GitHub</a>
-  </div>
+<a class="brand" href="#top"><span class="emoji">⚔️</span> War Game Prompt</a>
+<span class="sep">|</span>
+<span class="clubpro">
+<a class="inema" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<span class="sep">-</span>
+<a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
+</span>
+<div class="links">
+<a class="sec" href="#oque">O que é</a>
+<a class="sec" href="#fluxo">Como funciona</a>
+<a class="sec" href="#guia">Guia de uso</a>
+<a class="sec" href="#massa">Modo massa</a>
+<a class="sec" href="#exemplos">Exemplos</a>
+<a class="sec" href="#roadmap">Roadmap</a>
+<button aria-label="Alternar tema" class="tgl" id="themeToggle" title="Alternar tema">🌙</button>
+<a class="btn" href="https://github.com/inematds/promptwargame" rel="noopener" target="_blank">GitHub</a>
+</div>
 </div></nav>
-
 <header class="hero" id="top">
-  <div class="glow"></div>
-  <div class="wrap">
-    <div>
-      <span class="chip">Prompt de planejamento</span>
-      <h1>Pare de queimar tokens no <span class="amb">caminho feliz</span></h1>
-      <p class="lead">Um prompt pronto que transforma qualquer briefing de projeto num war game: fases com suposição otimista/pessimista, modos de falha, critérios de saída verificáveis e uma tabela mestre de riscos — tudo antes de escrever a primeira linha de código.</p>
-      <div class="cta">
-        <a class="btn" href="#guia">Começar o guia</a>
-        <a class="btn ghost" href="https://github.com/inematds/promptwargame" target="_blank" rel="noopener">Ver no GitHub</a>
-      </div>
-    </div>
-    <figure><img src="assets/hero.jpg" alt="Wargaming com IA: cenário pessimista de alto risco à esquerda, cenário otimista de baixo risco e execução precisa à direita"></figure>
-  </div>
+<div class="glow"></div>
+<div class="wrap">
+<div>
+<span class="chip">Prompt de planejamento</span>
+<h1>Pare de queimar tokens no <span class="amb">caminho feliz</span></h1>
+<p class="lead">Um prompt pronto que transforma qualquer briefing de projeto num war game: fases com suposição otimista/pessimista, modos de falha, critérios de saída verificáveis e uma tabela mestre de riscos — tudo antes de escrever a primeira linha de código.</p>
+<div class="cta">
+<a class="btn" href="#guia">Começar o guia</a>
+<a class="btn ghost" href="https://github.com/inematds/promptwargame" rel="noopener" target="_blank">Ver no GitHub</a>
+</div>
+</div>
+<figure><img alt="Wargaming com IA: cenário pessimista de alto risco à esquerda, cenário otimista de baixo risco e execução precisa à direita" src="assets/hero.jpg"/></figure>
+</div>
 </header>
-
 <section id="oque"><div class="wrap">
-  <span class="chip">O que é</span>
-  <h2>Um prompt, não uma ferramenta</h2>
-  <p class="sub">É um texto único — em EN e PT-BR — que você cola no início de uma conversa com sua IA de planejamento antes de pedir qualquer execução. Não precisa instalar nada.</p>
-  <div class="grid g3">
-    <div class="card"><h3>🎯 Sem caminho feliz</h3><p>Cada fase é obrigada a declarar objetivo, suposição otimista, suposição pessimista, modos de falha com correção, critérios de saída verificáveis, caminho alternativo e condição de parada — antes de existir código.</p></div>
-    <div class="card"><h3>📋 Tabela mestre de riscos</h3><p>Uma tabela única cobrindo infraestrutura, particularidades da API do modelo, frontend, qualidade de conversa, segurança e loop de aprendizado, cada cenário com detecção e recuperação.</p></div>
-    <div class="card"><h3>🔁 Loop de autoevolução</h3><p>Desenha uma revisão semanal que varre as conversas em busca de prompt injection e ajusta o estilo do agente dentro de limites rígidos — nenhuma mudança vai pra produção sem avaliação de regressão e aprovação explícita.</p></div>
-  </div>
+<span class="chip">O que é</span>
+<h2>Um prompt, não uma ferramenta</h2>
+<p class="sub">É um texto único — em EN e PT-BR — que você cola no início de uma conversa com sua IA de planejamento antes de pedir qualquer execução. Não precisa instalar nada.</p>
+<div class="grid g3">
+<div class="card"><h3>🎯 Sem caminho feliz</h3><p>Cada fase é obrigada a declarar objetivo, suposição otimista, suposição pessimista, modos de falha com correção, critérios de saída verificáveis, caminho alternativo e condição de parada — antes de existir código.</p></div>
+<div class="card"><h3>📋 Tabela mestre de riscos</h3><p>Uma tabela única cobrindo infraestrutura, particularidades da API do modelo, frontend, qualidade de conversa, segurança e loop de aprendizado, cada cenário com detecção e recuperação.</p></div>
+<div class="card"><h3>🔁 Loop de autoevolução</h3><p>Desenha uma revisão semanal que varre as conversas em busca de prompt injection e ajusta o estilo do agente dentro de limites rígidos — nenhuma mudança vai pra produção sem avaliação de regressão e aprovação explícita.</p></div>
+</div>
 </div></section>
-
 <section id="fluxo"><div class="wrap">
-  <span class="chip">Como funciona</span>
-  <h2>Planeja com modelo forte, executa fase por fase</h2>
-  <p class="sub">A lógica por trás do prompt: um esforço alto de raciocínio no planejamento compra um esforço baixo/médio — e muito mais previsível — na execução.</p>
-  <div class="flow">
-    <span>Copiar o prompt</span><span class="arr">→</span>
-    <span>Preencher os [colchetes]</span><span class="arr">→</span>
-    <span>Colar como 1ª mensagem</span><span class="arr">→</span>
-    <span>Plano em fases + tabela mestre</span><span class="arr">→</span>
-    <span>Dossiê visual em HTML</span><span class="arr">→</span>
-    <span>Executar fase a fase</span>
-  </div>
+<span class="chip">Como funciona</span>
+<h2>Planeja com modelo forte, executa fase por fase</h2>
+<p class="sub">A lógica por trás do prompt: um esforço alto de raciocínio no planejamento compra um esforço baixo/médio — e muito mais previsível — na execução.</p>
+<div class="flow">
+<span>Copiar o prompt</span><span class="arr">→</span>
+<span>Preencher os [colchetes]</span><span class="arr">→</span>
+<span>Colar como 1ª mensagem</span><span class="arr">→</span>
+<span>Plano em fases + tabela mestre</span><span class="arr">→</span>
+<span>Dossiê visual em HTML</span><span class="arr">→</span>
+<span>Executar fase a fase</span>
+</div>
 </div></section>
-
 <section id="pre"><div class="wrap">
-  <span class="chip">Pré-requisitos</span>
-  <h2>O que você precisa antes de começar</h2>
-  <p class="sub">Nada além de um briefing e um modelo capaz de planejamento longo — não há instalação, dependência ou build.</p>
-  <div class="grid g3">
-    <div class="card"><h3>Um briefing real</h3><p>A descrição do que você quer construir — quanto mais concreta (stack, integrações, dono do projeto), melhor o plano.</p><pre><span class="c"># o que estamos construindo</span>
+<span class="chip">Pré-requisitos</span>
+<h2>O que você precisa antes de começar</h2>
+<p class="sub">Nada além de um briefing e um modelo capaz de planejamento longo — não há instalação, dependência ou build.</p>
+<div class="grid g3">
+<div class="card"><h3>Um briefing real</h3><p>A descrição do que você quer construir — quanto mais concreta (stack, integrações, dono do projeto), melhor o plano.</p><pre><span class="c"># o que estamos construindo</span>
 <span class="s">"Um agente de chat com tour guiado + qualificação de lead..."</span></pre></div>
-    <div class="card"><h3>Um dos dois prompts</h3><p>Escolha o idioma e copie o arquivo correspondente do repo.</p><pre><span class="c"># EN</span>
+<div class="card"><h3>Um dos dois prompts</h3><p>Escolha o idioma e copie o arquivo correspondente do repo.</p><pre><span class="c"># EN</span>
 <span class="k">cat</span> doc/war-game-prompt.md
 <span class="c"># PT-BR</span>
 <span class="k">cat</span> doc/prompt-war-game-portugues.md</pre></div>
-    <div class="card"><h3>Uma IA de planejamento</h3><p>Um modelo com raciocínio alto (ex.: Claude Opus/Fable em modo "high"), de preferência com acesso a ferramentas de pesquisa.</p><pre><span class="c"># cole o prompt preenchido</span>
+<div class="card"><h3>Uma IA de planejamento</h3><p>Um modelo com raciocínio alto (ex.: Claude Opus/Fable em modo "high"), de preferência com acesso a ferramentas de pesquisa.</p><pre><span class="c"># cole o prompt preenchido</span>
 <span class="k">como a 1ª mensagem</span> <span class="c"># sem contexto prévio</span></pre></div>
-  </div>
+</div>
 </div></section>
-
 <section id="guia"><div class="wrap">
-  <span class="chip">Guia de uso · passo a passo</span>
-  <h2>Do prompt ao plano em 5 passos</h2>
-  <p class="sub">O prompt foi desenhado para um "cold-start agent" — funciona melhor como a primeira mensagem de uma conversa nova, sem nenhum contexto anterior do projeto.</p>
-
-  <div class="step"><div class="b">1</div><div>
-    <h3>Escolha o idioma e abra o prompt</h3>
-    <p>Os dois arquivos são equivalentes — escolha o do idioma em que você vai conversar com a IA.</p>
+<span class="chip">Guia de uso · passo a passo</span>
+<h2>Do prompt ao plano em 5 passos</h2>
+<p class="sub">O prompt foi desenhado para um "cold-start agent" — funciona melhor como a primeira mensagem de uma conversa nova, sem nenhum contexto anterior do projeto.</p>
+<div class="step"><div class="b">1</div><div>
+<h3>Escolha o idioma e abra o prompt</h3>
+<p>Os dois arquivos são equivalentes — escolha o do idioma em que você vai conversar com a IA.</p>
 <pre><span class="k">cat</span> doc/prompt-war-game-portugues.md  <span class="c"># ou doc/war-game-prompt.md (EN)</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">2</div><div>
-    <h3>Preencha os campos entre colchetes</h3>
-    <p>Troque cada <code>[PROJETO]</code>, <code>[Claude Haiku]</code>, <code>[Supabase Edge Functions]</code>, <code>[workshops/serviços]</code> etc. pelos detalhes reais do seu projeto — modelo, infraestrutura, stack, entregáveis esperados.</p>
+</div></div>
+<div class="step"><div class="b">2</div><div>
+<h3>Preencha os campos entre colchetes</h3>
+<p>Troque cada <code>[PROJETO]</code>, <code>[Claude Haiku]</code>, <code>[Supabase Edge Functions]</code>, <code>[workshops/serviços]</code> etc. pelos detalhes reais do seu projeto — modelo, infraestrutura, stack, entregáveis esperados.</p>
 <pre><span class="c"># antes</span>
 Plan a full build of <span class="s">[PROJECT]</span>, but do it as a war game.
 <span class="c"># depois</span>
 Plan a full build of <span class="s">the Prompt Advisers website chat agent</span>, but do it as a war game.</pre>
-  </div></div>
-
-  <div class="step"><div class="b">3</div><div>
-    <h3>Cole como a primeira mensagem</h3>
-    <p>Sem preâmbulo, sem contexto extra — o prompt já pede tudo que a IA precisa saber pra planejar do zero.</p>
+</div></div>
+<div class="step"><div class="b">3</div><div>
+<h3>Cole como a primeira mensagem</h3>
+<p>Sem preâmbulo, sem contexto extra — o prompt já pede tudo que a IA precisa saber pra planejar do zero.</p>
 <pre><span class="k">nova conversa</span> → <span class="k">colar o prompt preenchido</span>  <span class="c"># 1ª mensagem, sem histórico</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">4</div><div>
-    <h3>Cobre os dois entregáveis</h3>
-    <p>Se a IA parar antes de entregar os dois formatos pedidos no prompt, peça explicitamente pelos dois.</p>
+</div></div>
+<div class="step"><div class="b">4</div><div>
+<h3>Cobre os dois entregáveis</h3>
+<p>Se a IA parar antes de entregar os dois formatos pedidos no prompt, peça explicitamente pelos dois.</p>
 <pre><span class="k">1.</span> plano em Markdown (preâmbulo, caminho crítico, stack, estrutura, metodologia)
 <span class="k">2.</span> versão visual em HTML com diagramas da arquitetura e de cada fase</pre>
-  </div></div>
-
-  <div class="step"><div class="b">5</div><div>
-    <h3>Execute fase por fase, sem pular</h3>
-    <p>Pare a cada fase, confira os critérios de saída, e só então siga pra próxima. Se bater numa condição de parada, pare de verdade: registre o bloqueio em vez de deixar a IA improvisar uma saída.</p>
+</div></div>
+<div class="step"><div class="b">5</div><div>
+<h3>Execute fase por fase, sem pular</h3>
+<p>Pare a cada fase, confira os critérios de saída, e só então siga pra próxima. Se bater numa condição de parada, pare de verdade: registre o bloqueio em vez de deixar a IA improvisar uma saída.</p>
 <pre><span class="k">fase 0</span> → <span class="k">checar critérios de saída</span> → <span class="k">fase 1</span> → <span class="k">...</span></pre>
-  </div></div>
+</div></div>
 </div></section>
-
 <section id="massa"><div class="wrap">
-  <span class="chip">Modo massa</span>
-  <h2>Quando o problema não é um projeto, são doze</h2>
-  <p class="sub">O prompt acima abre <strong>um</strong> projeto a fundo. Existe um segundo modo, no mesmo repo, pra quando a pergunta é outra: tenho vários projetos parados — qual eu faço primeiro, qual eu simplifico, qual eu abandono?</p>
-
-  <div class="grid g2">
-    <div class="card"><h3>⚔️ War Game</h3><p><strong>Um projeto, a fundo.</strong> Responde "como construir isso sem levar porrada no caminho?". Entrega plano em fases, tabela mestre de falhas e dossiê visual em HTML.</p></div>
-    <div class="card"><h3>🗂️ War Game em Massa</h3><p><strong>Vários projetos, comparados.</strong> Responde "por onde eu começo?". Entrega uma análise por projeto, ranking por impacto/esforço/risco e plano de 30 e 90 dias.</p></div>
-  </div>
-
-  <p class="sub" style="margin-top:22px">Os dois usam a mesma lógica — <strong>ação → reação → contra-ação</strong> — e a mesma regra: prever a barreira antes da primeira linha de código. A diferença está em onde o modelo caro é gasto.</p>
-
-  <div class="flow">
-    <span>Um arquivo por projeto</span><span class="arr">→</span>
-    <span>Contexto + critérios comuns</span><span class="arr">→</span>
-    <span>Prompt mestre (modelo forte)</span><span class="arr">→</span>
-    <span>Rodada de revisão</span><span class="arr">→</span>
-    <span>Ranking + 30/90 dias</span><span class="arr">→</span>
-    <span>Executar 1 projeto (modelo barato)</span>
-  </div>
-
-  <div class="step" style="margin-top:34px"><div class="b">1</div><div>
-    <h3>Monte a estrutura e escreva um arquivo por projeto</h3>
-    <p>Nunca junte vários num arquivo só — isso mistura contexto e destrói a comparação. Comece pelo briefing mínimo de 5 perguntas; o que você não souber, <strong>deixe em branco</strong>, não chute.</p>
+<span class="chip">Modo massa</span>
+<h2>Quando o problema não é um projeto, são doze</h2>
+<p class="sub">O prompt acima abre <strong>um</strong> projeto a fundo. Existe um segundo modo, no mesmo repo, pra quando a pergunta é outra: tenho vários projetos parados — qual eu faço primeiro, qual eu simplifico, qual eu abandono?</p>
+<div class="grid g2">
+<div class="card"><h3>⚔️ War Game</h3><p><strong>Um projeto, a fundo.</strong> Responde "como construir isso sem levar porrada no caminho?". Entrega plano em fases, tabela mestre de falhas e dossiê visual em HTML.</p></div>
+<div class="card"><h3>🗂️ War Game em Massa</h3><p><strong>Vários projetos, comparados.</strong> Responde "por onde eu começo?". Entrega uma análise por projeto, ranking por impacto/esforço/risco e plano de 30 e 90 dias.</p></div>
+</div>
+<p class="sub" style="margin-top:22px">Os dois usam a mesma lógica — <strong>ação → reação → contra-ação</strong> — e a mesma regra: prever a barreira antes da primeira linha de código. A diferença está em onde o modelo caro é gasto.</p>
+<div class="flow">
+<span>Um arquivo por projeto</span><span class="arr">→</span>
+<span>Contexto + critérios comuns</span><span class="arr">→</span>
+<span>Prompt mestre (modelo forte)</span><span class="arr">→</span>
+<span>Rodada de revisão</span><span class="arr">→</span>
+<span>Ranking + 30/90 dias</span><span class="arr">→</span>
+<span>Executar 1 projeto (modelo barato)</span>
+</div>
+<div class="step" style="margin-top:34px"><div class="b">1</div><div>
+<h3>Monte a estrutura e escreva um arquivo por projeto</h3>
+<p>Nunca junte vários num arquivo só — isso mistura contexto e destrói a comparação. Comece pelo briefing mínimo de 5 perguntas; o que você não souber, <strong>deixe em branco</strong>, não chute.</p>
 <pre>analise-projetos/
 ├── projetos/          <span class="c"># projeto-01.md, projeto-02.md, ...</span>
 ├── resultados/        <span class="c"># a IA escreve aqui</span>
@@ -241,76 +226,66 @@ Plan a full build of <span class="s">the Prompt Advisers website chat agent</spa
 ├── criterios.md       <span class="c"># os mesmos critérios pra todos</span>
 ├── ledger.md          <span class="c"># bloqueios</span>
 └── assumptions.md     <span class="c"># suposições, com impacto se erradas</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">2</div><div>
-    <h3>Preencha o contexto geral e os critérios</h3>
-    <p>São esses dois arquivos que tornam projetos diferentes comparáveis. Critério comum é o que permite ranking — critério por projeto não permite nada.</p>
+</div></div>
+<div class="step"><div class="b">2</div><div>
+<h3>Preencha o contexto geral e os critérios</h3>
+<p>São esses dois arquivos que tornam projetos diferentes comparáveis. Critério comum é o que permite ranking — critério por projeto não permite nada.</p>
 <pre><span class="c"># criterios.md — os mesmos pra todos</span>
 <span class="k">substância</span>  clareza · problema real · público · valor · diferencial
 <span class="k">execução</span>   viabilidade · complexidade · gargalo · simplificação · automação
 <span class="k">risco</span>      o que impede · segurança · manutenção · escala
 <span class="k">retorno</span>    receita · custo</pre>
-  </div></div>
-
-  <div class="step"><div class="b">3</div><div>
-    <h3>Rode o prompt mestre com o modelo mais capaz</h3>
-    <p>Ele gera uma primeira versão de <strong>todos</strong> os projetos — sem polir nenhum. Polir o projeto 01 antes de olhar o resto queima o orçamento no primeiro da fila, que raramente é o mais importante.</p>
+</div></div>
+<div class="step"><div class="b">3</div><div>
+<h3>Rode o prompt mestre com o modelo mais capaz</h3>
+<p>Ele gera uma primeira versão de <strong>todos</strong> os projetos — sem polir nenhum. Polir o projeto 01 antes de olhar o resto queima o orçamento no primeiro da fila, que raramente é o mais importante.</p>
 <pre><span class="k">cat</span> doc/war-game-massa-portugues.md  <span class="c"># ou doc/mass-war-game.md (EN)</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">4</div><div>
-    <h3>Rode a rodada de revisão</h3>
-    <p>A primeira rodada quase sempre sai genérica. É a segunda que tira o genérico: caça contradição, risco ignorado, etapa sem validação e ação sem condição de parada.</p>
+</div></div>
+<div class="step"><div class="b">4</div><div>
+<h3>Rode a rodada de revisão</h3>
+<p>A primeira rodada quase sempre sai genérica. É a segunda que tira o genérico: caça contradição, risco ignorado, etapa sem validação e ação sem condição de parada.</p>
 <pre><span class="k">revisar</span> /resultados → <span class="k">aprofundar war-game</span> → <span class="k">atualizar ledger + suposições</span></pre>
-  </div></div>
-
-  <div class="step"><div class="b">5</div><div>
-    <h3>Escolha UM projeto e entregue ao modelo barato</h3>
-    <p>Análise pode ser em massa. Execução, não. Leia o <code>resumo-geral.md</code>, escolha o prioritário e entregue o war-game dele com o prompt de execução.</p>
+</div></div>
+<div class="step"><div class="b">5</div><div>
+<h3>Escolha UM projeto e entregue ao modelo barato</h3>
+<p>Análise pode ser em massa. Execução, não. Leia o <code>resumo-geral.md</code>, escolha o prioritário e entregue o war-game dele com o prompt de execução.</p>
 <pre><span class="k">modelo avançado</span> pensa e antecipa
 <span class="k">modelo intermediário</span> organiza
 <span class="k">modelo barato</span> executa  <span class="c"># seguindo o plano já mastigado</span></pre>
-  </div></div>
-
-  <p class="sub" style="margin-top:8px">O <code>ledger.md</code> e o <code>assumptions.md</code> são o que impede a análise de virar ficção: sem eles, o modelo inventa o que falta pra conseguir continuar. Faltou informação? Ela vira <code>[PRECISA_DEFINIR: x]</code> no ponto exato onde faria falta.</p>
-
-  <p class="sub" style="margin-top:22px">Quer ver onde isso chega? A <a href="https://github.com/inematds/promptwargame/tree/main/doc/exemplo-massa" target="_blank" rel="noopener">saída de exemplo</a> traz um portfólio fictício de 4 projetos analisado de ponta a ponta — <a href="https://github.com/inematds/promptwargame/blob/main/doc/exemplo-massa/resultados/resultado-projeto-02.md" target="_blank" rel="noopener">uma análise individual completa</a>, o <a href="https://github.com/inematds/promptwargame/blob/main/doc/exemplo-massa/resultados/resumo-geral.md" target="_blank" rel="noopener">resumo geral com ranking e plano de 30/90 dias</a>, mais o ledger e as suposições. É a referência de "pronto" deste modo.</p>
+</div></div>
+<p class="sub" style="margin-top:8px">O <code>ledger.md</code> e o <code>assumptions.md</code> são o que impede a análise de virar ficção: sem eles, o modelo inventa o que falta pra conseguir continuar. Faltou informação? Ela vira <code>[PRECISA_DEFINIR: x]</code> no ponto exato onde faria falta.</p>
+<p class="sub" style="margin-top:22px">Quer ver onde isso chega? A <a href="https://github.com/inematds/promptwargame/tree/main/doc/exemplo-massa" rel="noopener" target="_blank">saída de exemplo</a> traz um portfólio fictício de 4 projetos analisado de ponta a ponta — <a href="https://github.com/inematds/promptwargame/blob/main/doc/exemplo-massa/resultados/resultado-projeto-02.md" rel="noopener" target="_blank">uma análise individual completa</a>, o <a href="https://github.com/inematds/promptwargame/blob/main/doc/exemplo-massa/resultados/resumo-geral.md" rel="noopener" target="_blank">resumo geral com ranking e plano de 30/90 dias</a>, mais o ledger e as suposições. É a referência de "pronto" deste modo.</p>
 </div></section>
-
 <section id="exemplos"><div class="wrap">
-  <span class="chip">Exemplos</span>
-  <h2>Dois dossiês gerados a partir deste prompt</h2>
-  <p class="sub">Os dois HTMLs abaixo (<code>doc/war-game.html</code> em EN e <code>doc/war-game-portugues.html</code> em PT-BR) são a saída real do prompt aplicada ao caso PA-CHAT-V0 — um agente de chat com Claude Haiku + Supabase — e servem de referência de "pronto".</p>
-  <div class="ex">
-    <figure><img src="assets/ex1.jpg" alt="Infográfico: não mande executar direto, primeiro o war game — contexto, objetivo, público, stack, riscos e critérios antes de qualquer plano"><figcaption>Antes de mandar executar: contexto, objetivo, stack e riscos primeiro.</figcaption></figure>
-    <figure><img src="assets/ex2.jpg" alt="Infográfico: não execute direto, faça o war game primeiro — planejar com modelo forte, fase 0, fase 1, fase 2, parando a cada fase"><figcaption>Planeja com modelo forte → executa fase por fase → se travar, volta pro estrategista.</figcaption></figure>
-  </div>
-  <p class="sub" style="margin-top:22px">
-    <a href="https://inematds.github.io/promptwargame/doc/war-game.html" target="_blank" rel="noopener">Abrir dossiê de exemplo (EN) →</a><br>
-    <a href="https://inematds.github.io/promptwargame/doc/war-game-portugues.html" target="_blank" rel="noopener">Abrir dossiê de exemplo (PT-BR) →</a>
-  </p>
+<span class="chip">Exemplos</span>
+<h2>Dois dossiês gerados a partir deste prompt</h2>
+<p class="sub">Os dois HTMLs abaixo (<code>doc/war-game.html</code> em EN e <code>doc/war-game-portugues.html</code> em PT-BR) são a saída real do prompt aplicada ao caso PA-CHAT-V0 — um agente de chat com Claude Haiku + Supabase — e servem de referência de "pronto".</p>
+<div class="ex">
+<figure><img alt="Infográfico: não mande executar direto, primeiro o war game — contexto, objetivo, público, stack, riscos e critérios antes de qualquer plano" src="assets/ex1.jpg"/><figcaption>Antes de mandar executar: contexto, objetivo, stack e riscos primeiro.</figcaption></figure>
+<figure><img alt="Infográfico: não execute direto, faça o war game primeiro — planejar com modelo forte, fase 0, fase 1, fase 2, parando a cada fase" src="assets/ex2.jpg"/><figcaption>Planeja com modelo forte → executa fase por fase → se travar, volta pro estrategista.</figcaption></figure>
+</div>
+<p class="sub" style="margin-top:22px">
+<a href="https://inematds.github.io/promptwargame/doc/war-game.html" rel="noopener" target="_blank">Abrir dossiê de exemplo (EN) →</a><br/>
+<a href="https://inematds.github.io/promptwargame/doc/war-game-portugues.html" rel="noopener" target="_blank">Abrir dossiê de exemplo (PT-BR) →</a>
+</p>
 </div></section>
-
 <section id="roadmap"><div class="wrap">
-  <span class="chip">Roadmap</span>
-  <h2>Por onde isso pode evoluir</h2>
-  <p class="sub">O prompt está estável nas duas línguas. Próximos passos possíveis, sem compromisso de prazo.</p>
-  <div class="phase"><div class="tag">v1</div><div class="d"><strong>Prompt EN + PT-BR</strong><span>Os dois prompts prontos, mais dois dossiês de exemplo (PA-CHAT-V0) mostrando a saída esperada.</span></div></div>
-  <div class="phase"><div class="tag">v1.1</div><div class="d"><strong>Landing + guia</strong><span>Esta página: o que é, como funciona, passo a passo e exemplos, publicada no GitHub Pages.</span></div></div>
-  <div class="phase"><div class="tag">v1.2</div><div class="d"><strong>Condição de parada + modo massa</strong><span>Cada fase passa a declarar caminho alternativo e condição de parada. E entra o segundo modo: análise em massa de vários projetos, com ledger de bloqueios, registro de suposições, ranking e plano de 30/90 dias.</span></div></div>
-  <div class="phase"><div class="tag">próx.</div><div class="d"><strong>Variantes por domínio</strong><span>Versões do prompt afinadas pra tipos de projeto específicos (agente de chat, pipeline de dados, automação n8n).</span></div></div>
+<span class="chip">Roadmap</span>
+<h2>Por onde isso pode evoluir</h2>
+<p class="sub">O prompt está estável nas duas línguas. Próximos passos possíveis, sem compromisso de prazo.</p>
+<div class="phase"><div class="tag">v1</div><div class="d"><strong>Prompt EN + PT-BR</strong><span>Os dois prompts prontos, mais dois dossiês de exemplo (PA-CHAT-V0) mostrando a saída esperada.</span></div></div>
+<div class="phase"><div class="tag">v1.1</div><div class="d"><strong>Landing + guia</strong><span>Esta página: o que é, como funciona, passo a passo e exemplos, publicada no GitHub Pages.</span></div></div>
+<div class="phase"><div class="tag">v1.2</div><div class="d"><strong>Condição de parada + modo massa</strong><span>Cada fase passa a declarar caminho alternativo e condição de parada. E entra o segundo modo: análise em massa de vários projetos, com ledger de bloqueios, registro de suposições, ranking e plano de 30/90 dias.</span></div></div>
+<div class="phase"><div class="tag">próx.</div><div class="d"><strong>Variantes por domínio</strong><span>Versões do prompt afinadas pra tipos de projeto específicos (agente de chat, pipeline de dados, automação n8n).</span></div></div>
 </div></section>
-
 <footer>
-  <div class="wrap">
-    <div class="pill">prompt engineering</div><div class="pill">planejamento</div><div class="pill">Markdown + HTML</div>
-    <p style="margin-top:18px">War Game Prompt · técnica de planejamento pra builds de IA sem caminho feliz ·
+<div class="wrap">
+<div class="pill">prompt engineering</div><div class="pill">planejamento</div><div class="pill">Markdown + HTML</div>
+<p style="margin-top:18px">War Game Prompt · técnica de planejamento pra builds de IA sem caminho feliz ·
       <a href="https://github.com/inematds/promptwargame">inematds/promptwargame</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
-  </div>
+</div>
 </footer>
-
 <script>
   (function(){
     var KEY='promptwargame-theme';
